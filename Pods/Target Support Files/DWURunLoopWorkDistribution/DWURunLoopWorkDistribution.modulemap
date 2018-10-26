@@ -1,0 +1,6 @@
+framework module DWURunLoopWorkDistribution {
+  umbrella header "DWURunLoopWorkDistribution-umbrella.h"
+
+  export *
+  module * { export * }
+}

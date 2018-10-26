@@ -53,17 +53,6 @@ class MapViewController: UIViewController {
                 return true
                 }, withKey: i)
         }
-        
-        let allDayURLString = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson"
-        guard let allDayURL = URL(string: allDayURLString) else {
-            return
-        }
-        let geoJsonParser = GMUGeoJSONParser(url: allDayURL)
-        geoJsonParser.parse()
-
-        let renderer = GMUGeometryRenderer(map: mapView, geometries: geoJsonParser.features)
-
-        renderer.render()
     }
     
     func createMarker(feature:Feature) -> GMSMarker? {

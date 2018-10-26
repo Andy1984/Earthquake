@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1000"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "423F44B2089550B0530C160ADDAC580B"
+               BlueprintIdentifier = "EC200E3722A5A857BBFBEA44D9F9CCDF"
                BuildableName = "Pods_Earthquake.framework"
                BlueprintName = "Pods-Earthquake"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "423F44B2089550B0530C160ADDAC580B"
+            BlueprintIdentifier = "EC200E3722A5A857BBFBEA44D9F9CCDF"
             BuildableName = "Pods_Earthquake.framework"
             BlueprintName = "Pods-Earthquake"
             ReferencedContainer = "container:Pods.xcodeproj">
