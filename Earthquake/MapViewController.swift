@@ -12,7 +12,7 @@ import GooglePlaces
 class MapViewController: UIViewController {
     private var focusFeature:Feature
     private var otherFeatures:[Feature]
-    
+    private var mapView:GMSMapView!
     //Init
     init(focusFeature:Feature, otherFeatures:[Feature]) {
         self.focusFeature = focusFeature
@@ -35,21 +35,19 @@ class MapViewController: UIViewController {
             return
         }
         let camera = GMSCameraPosition.camera(withLatitude: coordinates.latitude, longitude: coordinates.longitude, zoom: 6.0)
-        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         view = mapView
         
-        let selectedMarker = self.createMarker(feature: self.focusFeature, mapView: mapView)
+        let selectedMarker = self.createMarker(feature: self.focusFeature)
         mapView.selectedMarker = selectedMarker
+        
         // Creates markers
-        DispatchQueue.global().async {
-            // This loop costs 0.005s on iPhone8 if the array size is 240
-            for feature in self.otherFeatures {
-                _ = self.createMarker(feature: feature, mapView:mapView)
-            }
+        for feature in self.otherFeatures {
+            _ = self.createMarker(feature: feature)
         }
     }
     
-    func createMarker(feature:Feature, mapView:GMSMapView) -> GMSMarker? {
+    func createMarker(feature:Feature) -> GMSMarker? {
         guard let coordinates = parseCoordinates(feature.geometry?.coordinates) else {
             return nil
         }

@@ -38,10 +38,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
+        // MJRefresh, pull to refresh, 
         tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(requestEarthquakesList))
     }
-    
-    
     
     // delegate methods of tableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
