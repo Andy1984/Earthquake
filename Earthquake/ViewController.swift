@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import MJRefresh
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     private var tableView:UITableView!
@@ -16,10 +17,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         title = "Earthquakes"
         createTableView()
+        requestEarthquakesList()
+    }
+    
+    @objc func requestEarthquakesList() {
+        SVProgressHUD.show()
         MapRequest.requestEarthquakesOfAllDay(success: { (features) in
+            SVProgressHUD.dismiss()
             self.features = features
             self.tableView.reloadData()
+            self.tableView.mj_header.endRefreshing()
         }) { (error) in
+            self.tableView.mj_header.endRefreshing()
             SVProgressHUD.showError(withStatus: error.localizedDescription)
         }
     }
@@ -29,7 +38,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(requestEarthquakesList))
     }
+    
+    
     
     // delegate methods of tableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
