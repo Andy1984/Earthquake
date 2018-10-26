@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EC200E3722A5A857BBFBEA44D9F9CCDF"
+               BlueprintIdentifier = "45D64D038ADC95A6E2196CA8377E5D42"
                BuildableName = "Pods_Earthquake.framework"
                BlueprintName = "Pods-Earthquake"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EC200E3722A5A857BBFBEA44D9F9CCDF"
+            BlueprintIdentifier = "45D64D038ADC95A6E2196CA8377E5D42"
             BuildableName = "Pods_Earthquake.framework"
             BlueprintName = "Pods-Earthquake"
             ReferencedContainer = "container:Pods.xcodeproj">

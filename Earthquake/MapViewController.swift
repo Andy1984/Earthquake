@@ -8,8 +8,7 @@
 
 import UIKit
 import GoogleMaps
-import GooglePlaces
-import DWURunLoopWorkDistribution
+
 class MapViewController: UIViewController {
     private let focusFeature:Feature
     private let otherFeatures:[Feature]
@@ -42,16 +41,8 @@ class MapViewController: UIViewController {
         let selectedMarker = self.createMarker(feature: self.focusFeature)
         mapView.selectedMarker = selectedMarker
         
-        // Creates markers
-        for (i, feature) in self.otherFeatures.enumerated() {
-            // create marker could be time consuming
-            DWURunLoopWorkDistribution.shared()?.addTask({ [weak self] () -> Bool in
-                guard let `self` = self else {
-                    return false
-                }
-                _ = self.createMarker(feature: feature)
-                return true
-                }, withKey: i)
+        for feature in self.otherFeatures {
+            _ = self.createMarker(feature: feature)
         }
     }
     
