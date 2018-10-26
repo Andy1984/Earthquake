@@ -10,8 +10,8 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 class MapViewController: UIViewController {
-    private var focusFeature:Feature
-    private var otherFeatures:[Feature]
+    private let focusFeature:Feature
+    private let otherFeatures:[Feature]
     private var mapView:GMSMapView!
     //Init
     init(focusFeature:Feature, otherFeatures:[Feature]) {
