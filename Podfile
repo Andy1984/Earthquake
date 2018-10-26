@@ -7,4 +7,7 @@ target 'Earthquake' do
     pod 'MJRefresh'
     pod 'SwiftyJSON', '~> 4.0'
     pod 'HandyJSON', '~> 4.2.0'
+    pod 'GoogleMaps'
+    pod 'GooglePlaces'
+    pod 'SVProgressHUD'
 end

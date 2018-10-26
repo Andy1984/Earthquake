@@ -13,6 +13,8 @@
 		0427BBF721817FD1004C8402 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0427BBF621817FD1004C8402 /* Assets.xcassets */; };
 		0427BBFA21817FD1004C8402 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0427BBF821817FD1004C8402 /* LaunchScreen.storyboard */; };
 		043889F421830E1400DB2105 /* EarthquakeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043889F321830E1400DB2105 /* EarthquakeStruct.swift */; };
+		043889F62183332900DB2105 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043889F52183332900DB2105 /* MapViewController.swift */; };
+		043889F821834C4800DB2105 /* MapRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043889F721834C4800DB2105 /* MapRequest.swift */; };
 		20A72FDF7927243FBBC9D248 /* Pods_Earthquake.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73D14C5194A2D05F2BF2BFE6 /* Pods_Earthquake.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +27,8 @@
 		0427BBF921817FD1004C8402 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0427BBFB21817FD1004C8402 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		043889F321830E1400DB2105 /* EarthquakeStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakeStruct.swift; sourceTree = "<group>"; };
+		043889F52183332900DB2105 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		043889F721834C4800DB2105 /* MapRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRequest.swift; sourceTree = "<group>"; };
 		4F7F12194F73182E5B6DAF37 /* Pods-Earthquake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Earthquake.release.xcconfig"; path = "Pods/Target Support Files/Pods-Earthquake/Pods-Earthquake.release.xcconfig"; sourceTree = "<group>"; };
 		73D14C5194A2D05F2BF2BFE6 /* Pods_Earthquake.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Earthquake.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE97D418612B071FC436205A /* Pods-Earthquake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Earthquake.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Earthquake/Pods-Earthquake.debug.xcconfig"; sourceTree = "<group>"; };
@@ -73,7 +77,9 @@
 			isa = PBXGroup;
 			children = (
 				0427BBEF21817FD0004C8402 /* AppDelegate.swift */,
+				043889F721834C4800DB2105 /* MapRequest.swift */,
 				0427BBF121817FD0004C8402 /* ViewController.swift */,
+				043889F52183332900DB2105 /* MapViewController.swift */,
 				043889F321830E1400DB2105 /* EarthquakeStruct.swift */,
 				0427BBF321817FD0004C8402 /* Main.storyboard */,
 				0427BBF621817FD1004C8402 /* Assets.xcassets */,
@@ -103,6 +109,7 @@
 				0427BBE921817FD0004C8402 /* Frameworks */,
 				0427BBEA21817FD0004C8402 /* Resources */,
 				1BB5AE88B8868B4E87537EB4 /* [CP] Embed Pods Frameworks */,
+				EEB929495BC8139B9A159BF0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -172,6 +179,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -181,6 +189,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,6 +219,30 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		EEB929495BC8139B9A159BF0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Earthquake/Pods-Earthquake-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Earthquake/Pods-Earthquake-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -219,7 +252,9 @@
 			files = (
 				043889F421830E1400DB2105 /* EarthquakeStruct.swift in Sources */,
 				0427BBF221817FD0004C8402 /* ViewController.swift in Sources */,
+				043889F821834C4800DB2105 /* MapRequest.swift in Sources */,
 				0427BBF021817FD0004C8402 /* AppDelegate.swift in Sources */,
+				043889F62183332900DB2105 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,7 +20,7 @@ struct Feature: HandyJSON {
 struct Geometry: HandyJSON {
     init() {}
     var type:String?
-    var coorinates:[Float]?
+    var coordinates:[Double]?
 }
 
 struct Properties: HandyJSON {
