@@ -9,6 +9,7 @@
 import UIKit
 import GoogleMaps
 import GooglePlaces
+import DWURunLoopWorkDistribution
 class MapViewController: UIViewController {
     private let focusFeature:Feature
     private let otherFeatures:[Feature]
@@ -42,9 +43,27 @@ class MapViewController: UIViewController {
         mapView.selectedMarker = selectedMarker
         
         // Creates markers
-        for feature in self.otherFeatures {
-            _ = self.createMarker(feature: feature)
+        for (i, feature) in self.otherFeatures.enumerated() {
+            // create marker could be time consuming
+            DWURunLoopWorkDistribution.shared()?.addTask({ [weak self] () -> Bool in
+                guard let `self` = self else {
+                    return false
+                }
+                _ = self.createMarker(feature: feature)
+                return true
+                }, withKey: i)
         }
+        
+        let allDayURLString = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson"
+        guard let allDayURL = URL(string: allDayURLString) else {
+            return
+        }
+        let geoJsonParser = GMUGeoJSONParser(url: allDayURL)
+        geoJsonParser.parse()
+
+        let renderer = GMUGeometryRenderer(map: mapView, geometries: geoJsonParser.features)
+
+        renderer.render()
     }
     
     func createMarker(feature:Feature) -> GMSMarker? {

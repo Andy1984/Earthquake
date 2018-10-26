@@ -20,13 +20,19 @@ class MapRequest {
             // Handle error
             if let error = dataResponse.error {
                 failure(error)
+                return
             }
+            
+            let error = NSError(domain: "JSON format is not expected", code: -1, userInfo: [NSLocalizedDescriptionKey:"JSON format is not expected"]) as Error
+            
             // Use SwiftyJSON to get features array
             guard let value = dataResponse.result.value else {
+                failure(error)
                 return
             }
             let json = JSON(value)
             guard let featuresArrayObject = json["features"].arrayObject as? [[String:Any]] else {
+                failure(error)
                 return
             }
             // Use HandyJSON to convert dictionaries to model structs

@@ -10,4 +10,5 @@ target 'Earthquake' do
     pod 'GoogleMaps'
     pod 'GooglePlaces'
     pod 'SVProgressHUD'
+    pod 'DWURunLoopWorkDistribution'
 end
