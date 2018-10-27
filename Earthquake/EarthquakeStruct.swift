@@ -21,6 +21,19 @@ struct Geometry: HandyJSON {
     init() {}
     var type:String?
     var coordinates:[Double]?
+    // convert array to tuple
+    static func parseCoordinates(_ wrappedCoordinates:[Double]?) -> (longitude:Double, latitude:Double, depth:Double)? {
+        guard let coordinates = wrappedCoordinates else {
+            return nil
+        }
+        guard coordinates.count == 3 else {
+            return nil
+        }
+        let longitude = coordinates[0]
+        let latitude = coordinates[1]
+        let depth = coordinates[2]
+        return (longitude, latitude, depth)
+    }
 }
 
 struct Properties: HandyJSON {

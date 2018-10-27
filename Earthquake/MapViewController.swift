@@ -31,7 +31,7 @@ class MapViewController: UIViewController {
     
     // Create map
     override func loadView() {
-        guard let coordinates = parseCoordinates(focusFeature.geometry?.coordinates) else {
+        guard let coordinates = Geometry.parseCoordinates(focusFeature.geometry?.coordinates) else {
             return
         }
         let camera = GMSCameraPosition.camera(withLatitude: coordinates.latitude, longitude: coordinates.longitude, zoom: 6.0)
@@ -47,7 +47,7 @@ class MapViewController: UIViewController {
     }
     
     func createMarker(feature:Feature) -> GMSMarker? {
-        guard let coordinates = parseCoordinates(feature.geometry?.coordinates) else {
+        guard let coordinates = Geometry.parseCoordinates(feature.geometry?.coordinates) else {
             return nil
         }
         let marker = GMSMarker()
@@ -63,19 +63,5 @@ class MapViewController: UIViewController {
             marker.map = mapView
         }
         return marker
-    }
-
-    // convert array to tuple
-    func parseCoordinates(_ wrappedCoordinates:[Double]?) -> (longitude:Double, latitude:Double, depth:Double)? {
-        guard let coordinates = wrappedCoordinates else {
-            return nil
-        }
-        guard coordinates.count == 3 else {
-            return nil
-        }
-        let longitude = coordinates[0]
-        let latitude = coordinates[1]
-        let depth = coordinates[2]
-        return (longitude, latitude, depth)
     }
 }
